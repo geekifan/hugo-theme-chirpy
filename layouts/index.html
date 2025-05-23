@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $all_posts := where .Site.RegularPages "Section" "post" }}
+  {{ $all_posts := where .Site.RegularPages "Type" "post" }}
   {{ $all_pinned := where $all_posts "Params.pin" true }}
   {{ $all_normal := where $all_posts "Params.pin" "!=" true }}
 
