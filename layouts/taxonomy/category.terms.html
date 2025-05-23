@@ -9,8 +9,10 @@
     <!-- get all parent categories -->
     {{ $parentCategories := slice }}
     {{ range $allPages }}
-      {{ if gt (len .Params.categories) 0 }}
-        {{ $parentCategories = $parentCategories | append (index .Params.categories 0) }}
+      {{ if isset .Params "categories" }}
+        {{ if gt (len .Params.categories) 0 }}
+          {{ $parentCategories = $parentCategories | append (index .Params.categories 0) }}
+        {{ end }}
       {{ end }}
     {{ end }}
     {{ $parentCategories = $parentCategories | uniq | sort }}
@@ -23,11 +25,13 @@
       
       <!-- get all pages and subcategories related to the parent category -->
       {{ range $allPages }}
-        {{ if gt (len .Params.categories) 0 }}
-          {{ if eq (index .Params.categories 0) $parentName }}
-            {{ $parentPages = $parentPages | append . }}
-            {{ if gt (len .Params.categories) 1 }}
-              {{ $subcategories = $subcategories | append (index .Params.categories 1) }}
+        {{ if isset .Params "categories" }}
+          {{ if gt (len .Params.categories) 0 }}
+            {{ if eq (index .Params.categories 0) $parentName }}
+              {{ $parentPages = $parentPages | append . }}
+              {{ if gt (len .Params.categories) 1 }}
+                {{ $subcategories = $subcategories | append (index .Params.categories 1) }}
+              {{ end }}
             {{ end }}
           {{ end }}
         {{ end }}
