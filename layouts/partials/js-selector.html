@@ -89,9 +89,9 @@
 {{ if .Params.math }}
   <!-- MathJax -->
   {{ $mathjaxConfig := resources.Get "js/mathjax.js" | minify | fingerprint }}
-  <script src="{{ $mathjaxConfig.RelPermalink }}"></script>
+  <script src="{{ $mathjaxConfig.RelPermalink }}" defer></script>
   <script async src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="{{ $data.mathjax.js }}"></script>
+  <script id="MathJax-script" src="{{ $data.mathjax.js }}" defer></script>
 {{ end }}
 
 <!-- Pageviews -->

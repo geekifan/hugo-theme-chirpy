@@ -1,15 +1,13 @@
-document.addEventListener('DOMContentLoaded', () => {
-  MathJax = {
-    tex: {
-      inlineMath: [
-        ['$', '$'],
-      ['\\(', '\\)']
-      ],
-      displayMath: [
-        ['$$', '$$'],
-        ['\\[', '\\]']
-      ],
-      tags: 'ams'
-    }
-  };
-});
+window.MathJax = {
+  tex: {
+    inlineMath: [
+      ['$', '$'],
+    ['\\(', '\\)']
+    ],
+    displayMath: [
+      ['$$', '$$'],
+      ['\\[', '\\]']
+    ],
+    tags: 'ams'
+  }
+};
