@@ -1,0 +1,50 @@
+{{ define "main" }}
+  <main class="section-page">
+    <header class="section-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}
+        <p class="section-description">{{ . }}</p>
+      {{ end }}
+    </header>
+
+    <div class="section-content">
+      {{ .Content }}
+    </div>
+
+    {{ if .Pages }}
+      <div class="section-pages">
+        <h2>Subsections & Pages</h2>
+        <ul class="page-list">
+          {{ range .Pages }}
+            <li>
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              {{ if .IsSection }}
+                <span class="badge">Section</span>
+              {{ end }}
+              {{ with .Description }}
+                <p class="page-description">{{ . }}</p>
+              {{ end }}
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+
+    {{ if .Sections }}
+      <div class="section-subsections">
+        <h2>Subsections</h2>
+        <div class="subsection-grid">
+          {{ range .Sections }}
+            <div class="subsection-card">
+              <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+              {{ with .Description }}
+                <p>{{ . }}</p>
+              {{ end }}
+              <a href="{{ .RelPermalink }}" class="btn">View Section</a>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+  </main>
+{{ end }}

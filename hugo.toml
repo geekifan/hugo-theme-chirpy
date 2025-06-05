@@ -8,7 +8,7 @@ defaultContentLanguageInSubdir = false
   pagerSize = 5
 
 [params]
-  theme_version = "1.0.1"
+  theme_version = "1.0.2"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
