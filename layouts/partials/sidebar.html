@@ -34,12 +34,15 @@
         </li>
         <!-- .nav-item -->
       {{ end }}
-      <li class="nav-item mt-4">
-        <a class="nav-link no-hover">
-          <i class="fa-fw fas fa-language"></i>
-          {{ partial "language-selector.html" . }}
-        </a>
-      </li>
+
+      {{ if hugo.IsMultilingual }}
+        <li class="nav-item mt-4">
+          <a class="nav-link no-hover">
+            <i class="fa-fw fas fa-language"></i>
+            {{ partial "language-selector.html" . }}
+          </a>
+        </li>
+      {{ end }}
     </ul>
   </nav>
 
@@ -57,7 +60,7 @@
     {{ range .Site.Params.social.links }}
       {{ $url := "" }}
       {{ $rel := "" }}
-      
+
       {{ if eq .type "github" }}
         {{ $url = printf "https://github.com/%s" .id }}
       {{ else if eq .type "twitter" }}
