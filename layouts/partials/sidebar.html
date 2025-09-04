@@ -57,7 +57,7 @@
     {{ range .Site.Params.social.links }}
       {{ $url := "" }}
       {{ $rel := "" }}
-      
+
       {{ if eq .type "github" }}
         {{ $url = printf "https://github.com/%s" .id }}
       {{ else if eq .type "twitter" }}
@@ -66,6 +66,8 @@
         {{ $url = printf "mailto:%s" .id }}
       {{ else if eq .type "rss" }}
         {{ $url = "index.xml" | absLangURL }}
+      {{ else if eq .type "custom" }}
+        {{ $url = printf "%s" .id }}
       {{ else }}
         {{ $url = .url }}
       {{ end }}
