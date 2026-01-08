@@ -69,6 +69,8 @@
         {{ $url = printf "mailto:%s" .id }}
       {{ else if eq .type "rss" }}
         {{ $url = "index.xml" | absLangURL }}
+      {{ else if eq .type "custom" }}
+        {{ $url = printf "%s" .id }}
       {{ else }}
         {{ $url = .url }}
       {{ end }}
