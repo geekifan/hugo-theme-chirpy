@@ -67,7 +67,7 @@ For Unix-like systems, you can set up the environment natively for optimal perfo
 
 ## Usage
 
-### Start the Jekyll Server
+### Start the Hugo Server
 
 To run the site locally, use the following command:
 
