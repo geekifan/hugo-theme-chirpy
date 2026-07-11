@@ -1,15 +1,4 @@
 <!doctype html>
-<head>
-  {{ $opts := dict 
-    "transpiler" "dartsass"
-    "targetPath" "css/main.css"
-    "enableSourceMap" true
-    "silenceDependencyDeprecations" true
-  }}
-  {{ $sass := resources.Get "scss/main.bundle.scss" }}
-  {{ $style := $sass | toCSS $opts | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $style.Permalink }}">
-</head>
 <html lang="{{ .Site.Language.Locale | default .Site.Language.Name }}">
   {{ partial "head.html" . }}
   <body>

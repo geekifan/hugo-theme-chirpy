@@ -25,7 +25,7 @@ glightbox:
   css: /lib/glightbox/glightbox.min.css
   js: /lib/glightbox/glightbox.min.js
 
-lazy-polyfill:
+lazy_polyfill:
   css: /lib/loading-attribute-polyfill/loading-attribute-polyfill.min.css
   js: /lib/loading-attribute-polyfill/loading-attribute-polyfill.umd.min.js
 
