@@ -3,19 +3,11 @@
 
 {{- $description := "" -}}
 {{- if .Description -}}
-  {{- $description = .Description -}}
+  {{- $description = .Description | plainify | htmlUnescape -}}
 {{- else if .Params.description -}}
-  {{- $description = .Params.description -}}
+  {{- $description = .Params.description | plainify | htmlUnescape -}}
 {{- else -}}
-  {{- /* Remove the line number of the code snippet */ -}}
-  {{- $content := .Content -}}
-
-  {{- if findRE `<td class="rouge-gutter gl"><pre class="lineno">` $content -}}
-    {{- $content = replace $content `<td class="rouge-gutter gl"><pre class="lineno">` `<!-- <td class="rouge-gutter gl"><pre class="lineno">` -}}
-    {{- $content = replace $content `</td><td class="rouge-code">` `</td> --><td class="rouge-code">` -}}
-  {{- end -}}
-
-  {{- $description = $content | markdownify | plainify | replaceRE `\s+` ` ` -}}
+  {{- $description = .Summary | plainify | htmlUnescape | replaceRE `\s+` ` ` -}}
 {{- end -}}
 
-{{- (trim $description " ") | truncate $max_length | safeHTML -}}
+{{- (trim $description " ") | truncate $max_length -}}
