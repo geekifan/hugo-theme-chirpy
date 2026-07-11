@@ -1,11 +1,10 @@
 {{ if hugo.IsMultilingual }}
   <div class="lang-dropdown">
     <select class="lang-select" onchange="location = this.value;">
-      {{ $currentLang := .Site.Language.Lang }}
-      {{ $siteBase := strings.TrimSuffix "/" .Site.BaseURL }}
-      {{ range .Site.Languages }}
-        <option value="{{ $siteBase }}/{{ .Lang }}/" {{ if eq .Lang $currentLang }}selected{{ end }}>
-          {{ .LanguageName }}
+      {{ $currentLang := .Site.Language.Name }}
+      {{ range hugo.Sites }}
+        <option value="{{ .Home.RelPermalink }}" {{ if eq .Language.Name $currentLang }}selected{{ end }}>
+          {{ .Language.Label }}
         </option>
       {{ end }}
     </select>

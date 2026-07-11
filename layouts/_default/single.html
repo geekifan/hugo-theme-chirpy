@@ -1,6 +1,6 @@
 {{ define "main" }}
   {{ $enable_toc := and (.Params.toc | default .Site.Params.enableTOC) (gt (len .TableOfContents) 100) }}
-  {{ $lang := .Site.Language.Lang }}
+  {{ $lang := .Site.Language.Name }}
 
   <article class="px-1" data-toc="{{ $enable_toc }}">
     <header>
@@ -51,7 +51,7 @@
             <em>
               {{ if $authors }}
                 {{ range $i, $author := $authors }}
-                  {{ with $.Site.Data.authors }}
+                  {{ with hugo.Data.authors }}
                     {{ with (index . $author) }}
                       {{ if .url }}
                         <a href="{{ .url }}">{{ .name }}</a>

@@ -18,6 +18,9 @@ defaultContentLanguageInSubdir = false
   tag = "tags"
 
 [module]
+[module.hugoVersion]
+  min = "0.158.0"
+
 [[module.imports]]
   path = "github.com/gohugoio/hugo-mod-bootstrap-scss/v5"
 

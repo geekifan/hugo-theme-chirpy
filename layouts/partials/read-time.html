@@ -12,7 +12,7 @@
   {{ $read_time = $min_time }}
 {{ end }}
 
-{{ $lang := .lang | default site.Language.Lang }}
+{{ $lang := .lang | default site.Language.Name }}
 {{ $read_prompt := i18n "post.read_time.prompt" (dict "Language" $lang) }}
 
 <!-- return element -->

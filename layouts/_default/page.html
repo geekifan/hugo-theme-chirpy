@@ -2,7 +2,7 @@
   <article class="px-1">
     {{ if or (eq .Layout "page") (eq .Type "tabs") }}
       {{ $tab_key := .Title | lower }}
-      {{ $title := index (index .Site.Data.locales .Site.Language.Lang).tabs $tab_key | default .Title }}
+      {{ $title := index (index hugo.Data.locales .Site.Language.Name).tabs $tab_key | default .Title }}
       <h1 class="dynamic-title">
         {{ $title }}
       </h1>

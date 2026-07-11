@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $lang := .Site.Language.Lang }}
+  {{ $lang := .Site.Language.Name }}
   {{ $df_strftime_m := i18n "df.archives.strftime" | default "/ %m" }}
   {{ $df_dayjs_m := i18n "df.archives.dayjs" | default "/ MM" }}
   <article class="px-1">
