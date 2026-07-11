@@ -1,4 +1,4 @@
-{{ $locales := index site.Data.locales .lang }}
+{{ $locales := index hugo.Data.locales .lang }}
 {{ $dateFormat := default "02/01/2006" (i18n "df.post.strftime") }}
 {{ $dayjsFormat := default "DD/MM/YYYY" (i18n "df.post.dayjs") }}
 

@@ -1,5 +1,5 @@
 {{ $origin := cond (eq .Site.Params.assets.self_host true) "basic" "cors" }}
-{{ $data := index .Site.Data.origin $origin }}
+{{ $data := index hugo.Data.origin $origin }}
 {{ $is_home := false }}
 {{ if or (eq .RelPermalink "/") (eq .RelPermalink (relLangURL "/")) (eq .RelPermalink (.Site.Home.RelPermalink)) }}
   {{ $is_home = true }}

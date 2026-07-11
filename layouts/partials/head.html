@@ -1,5 +1,5 @@
 {{ $origin := cond (eq .Site.Params.assets.self_host true) "basic" "cors" }}
-{{ $data := index .Site.Data.origin $origin }}
+{{ $data := index hugo.Data.origin $origin }}
 {{- $jsOpts := dict
   "target" "es2015"
   "minify" (eq hugo.Environment "production")
@@ -32,7 +32,7 @@
 
   <!-- Resource Hints -->
   {{ if not site.Params.assets.self_host }}
-    {{ range site.Data.origin.cors.resource_hints }}
+    {{ range hugo.Data.origin.cors.resource_hints }}
       {{ $url := .url }}
       {{ range .links }}
         <link rel="{{ .rel }}" href="{{ $url }}" {{ if isset . "opts" }}{{ delimit .opts " " | safeHTMLAttr }}{{ end }}>
@@ -50,6 +50,7 @@
     "transpiler" "dartsass"
     "targetPath" "css/main.css"
     "enableSourceMap" true
+    "silenceDependencyDeprecations" true
   }}
   {{ $sass := resources.Get "scss/main.bundle.scss" }}
   {{ $style := $sass | toCSS $opts | minify | fingerprint }}

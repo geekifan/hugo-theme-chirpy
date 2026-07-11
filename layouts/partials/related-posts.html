@@ -80,7 +80,7 @@
         <article class="col">
           <a href="{{ .RelPermalink }}" class="post-preview card h-100">
             <div class="card-body">
-              {{ partial "datetime.html" (dict "date" .Date "lang" site.Language.Lang) }}
+              {{ partial "datetime.html" (dict "date" .Date "lang" site.Language.Name) }}
               <h4 class="pt-0 my-2">{{ .Title }}</h4>
               <div class="text-muted">
                 <p>{{ partial "post-description.html" . }}</p>

@@ -1,6 +1,6 @@
 {{ define "main" }}
   {{ $enable_toc := and (.Params.toc | default site.Params.toc) (gt (len .TableOfContents) 100) }}
-  {{ $lang := .Site.Language.Lang }}
+  {{ $lang := .Site.Language.Name }}
   {{ $page := . }}
 
   <article class="px-1" data-toc="{{ $enable_toc }}">
@@ -50,7 +50,7 @@
             {{ if not (reflect.IsSlice $authors) }}
               {{ $authors = slice $authors }}
             {{ end }}
-            {{ $authorsData := index $.Site.Data.authors .Site.LanguageCode | default $.Site.Data.authors }}
+            {{ $authorsData := index hugo.Data.authors .Site.Language.Name | default hugo.Data.authors }}
 
 
             {{ i18n "post.written_by" }}

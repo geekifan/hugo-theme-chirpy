@@ -3,7 +3,7 @@
     const themeMapper = Theme.getThemeMapper('light', 'dark_dimmed');
     const initTheme = themeMapper[Theme.visualState];
 
-    let lang = '{{ .Site.Params.comments.giscus.lang | default .Site.Language.Lang }}';
+    let lang = '{{ .Site.Params.comments.giscus.lang | default .Site.Language.Name }}';
     {{/* https://github.com/giscus/giscus/tree/main/locales */}}
     if (lang.length > 2 && !lang.startsWith('zh')) {
       lang = lang.slice(0, 2);
