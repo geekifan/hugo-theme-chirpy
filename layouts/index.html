@@ -59,7 +59,9 @@
             {{ end }}
 
             <div class="col-md-5">
-              <img src="{{ $src }}" alt="{{ $alt }}" {{ $lqip | safeHTMLAttr }}>
+              <div class="preview-img">
+                <img src="{{ $src }}" alt="{{ $alt }}" {{ $lqip | safeHTMLAttr }}>
+              </div>
             </div>
 
             {{ $card_body_col = "7" }}
