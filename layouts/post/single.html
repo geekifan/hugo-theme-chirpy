@@ -36,7 +36,9 @@
           {{ with .lqip }}{{ $lqip = printf "lqip=\"%s\"" . }}{{ end }}
 
           <div class="mt-3 mb-3">
-            <img {{ $src | safeHTMLAttr }} {{ $class | safeHTMLAttr }} {{ $alt | safeHTMLAttr }} w="1200" h="630" {{ $lqip | safeHTMLAttr }}>
+            <div {{ $class | safeHTMLAttr }}>
+              <img {{ $src | safeHTMLAttr }} {{ $alt | safeHTMLAttr }} w="1200" h="630" {{ $lqip | safeHTMLAttr }}>
+            </div>
             {{- with .alt -}}
               <figcaption class="text-center pt-2 pb-2">{{ . }}</figcaption>
             {{- end -}}
